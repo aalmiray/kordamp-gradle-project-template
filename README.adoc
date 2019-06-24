@@ -3,7 +3,6 @@
 :project-name: kordamp-gradle-project
 :project-version: 1.0.0
 
-image:https://img.shields.io/travis/aalmiray/{project-name}/master.svg?logo=travis["Build Status", link="https://travis-ci.org/aalmiray/{project-name}"]
 image:https://img.shields.io/badge/license-ASF2-blue.svg?logo=apache["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
 image:https://api.bintray.com/packages/aalmiray/kordamp/{project-name}/images/download.svg[link="https://bintray.com/aalmiray/kordamp/{project-name}/_latestVersion"]
 image:https://img.shields.io/badge/donations-Patreon-f96854.svg?logo=patreon[link="https://www.patreon.com/user?u=6609318"]
@@ -20,5 +19,5 @@ A link:https://github.com/pledbrook/lazybones/[Lazybones] project template for l
 [source]
 [subs="attributes"]
 ----
-$ lazybones create kordamp-gradle-project {project-version} <project-name>
+$ lazybones create kordamp-gradle-project {project-version} &lt;project-name&gt;
 ----
