@@ -1,0 +1,22 @@
+buildscript {
+    repositories {
+        maven {
+            url 'http://dl.bintray.com/pledbrook/plugins'
+        }
+    }
+
+    dependencies {
+        classpath 'uk.co.cacoethes:lazybones-gradle:1.2.4'
+    }
+}
+
+apply plugin: 'uk.co.cacoethes.lazybones-templates'
+
+lazybones {
+    repositoryName     = 'aalmiray/kordamp-gradle-project'
+    repositoryUsername = project.bintrayUsername
+    repositoryApiKey   = project.bintrayApiKey
+
+    licenses = ['Apache-2.0']
+    vcsUrl = 'https://github.com/aalmiray/kordamp-gradle-project'
+}
