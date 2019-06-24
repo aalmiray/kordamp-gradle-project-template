@@ -14,7 +14,7 @@ A link:https://github.com/pledbrook/lazybones/[Lazybones] project template for l
 == Usage
 
 1. Install the Lazybones CLI. We recommend using link:https://sdkman.io/[SDKMan!].
-2. Next register the `{project-name}` repository with Lazybones' config file. Edit `$USER_HOME/.lazybones/config.groovy`
+2. Next register the Kordamp templates repository with Lazybones' config file. Edit `$USER_HOME/.lazybones/config.groovy`
 
 [source]
 [subs="attributes"]
