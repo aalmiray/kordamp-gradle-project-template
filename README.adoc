@@ -20,7 +20,7 @@ A link:https://github.com/pledbrook/lazybones/[Lazybones] project template for l
 [subs="attributes"]
 ----
 bintrayRepositories = [
-    'aalmiray/{project-name}',
+    'aalmiray/kordamp',
     'pledbrook/lazybones-templates'
 ]
 ----
