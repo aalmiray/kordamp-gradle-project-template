@@ -1,6 +1,6 @@
 = kordamp-gradle-project
 :linkattrs:
-:project-name: kordamp-gradle-project
+:project-name: kordamp-gradle-project-template
 :project-version: 1.0.0
 
 image:https://img.shields.io/badge/license-ASF2-blue.svg?logo=apache["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
@@ -14,13 +14,13 @@ A link:https://github.com/pledbrook/lazybones/[Lazybones] project template for l
 == Usage
 
 . Install the Lazybones CLI. We recommend using link:https://sdkman.io/[SDKMan!].
-. Next register the `{project-name}-template` repository with Lazybones' config file. Edit `$USER_HOME/.lazybones/config.groovy`
+. Next register the `{project-name}` repository with Lazybones' config file. Edit `$USER_HOME/.lazybones/config.groovy`
 
 [source]
 [subs="attributes"]
 ----
 bintrayRepositories = [
-    'aalmiray/{project-name}-template',
+    'aalmiray/{project-name}',
     'pledbrook/lazybones-templates'
 ]
 ----
