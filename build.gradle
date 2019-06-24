@@ -13,10 +13,10 @@ buildscript {
 apply plugin: 'uk.co.cacoethes.lazybones-templates'
 
 lazybones {
-    repositoryName     = 'aalmiray/kordamp-gradle-project'
+    repositoryName     = 'aalmiray/kordamp'
     repositoryUsername = project.bintrayUsername
     repositoryApiKey   = project.bintrayApiKey
 
     licenses = ['Apache-2.0']
-    vcsUrl = 'https://github.com/aalmiray/kordamp-gradle-project'
+    vcsUrl = 'https://github.com/aalmiray/kordamp-gradle-project-template'
 }
