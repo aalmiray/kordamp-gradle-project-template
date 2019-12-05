@@ -10,13 +10,26 @@ if (projectDir.name =~ /\-/) {
 props.project_name = transformText(className, from: NameType.CAMEL_CASE, to: NameType.HYPHENATED)
 props.project_author = System.properties['user.name']
 
-props.project_group = ask("Define value for 'group' [org.example]: ", "org.example", "group")
-props.project_name = ask("Define value for 'artifactId' [" + props.project_name + "]: ", props.project_name, "artifactId")
-props.project_version = ask("Define value for 'version' [0.0.0-SNAPSHOT]: ", "0.0.0-SNAPSHOT", "version")
-props.kordamp_version = ask("Define value for 'kordampVersion' [0.22.0]: ", "0.22.0", "kordampVersion")
-props.project_layout = ask("Define value for 'layout' [two-level] from (single, standard, two-level, multi-level): ", "two-level", "layout")
-props.project_author = ask("Define valud for 'author' [" + props.project_author + "]: ", props.project_author, "author")
-props.project_license = ask("Define value for 'license' [Apache-2.0]: ", "Apache-2.0", "license")
+def projectType
+def projectTypes = ['generic', 'java', 'groovy', 'kotlin', 'scala']
+println '\nThe following project types are available\n'
+projectTypes.each { println "  $it" }
+println ' '
+while (!(projectType in projectTypes)) {
+    projectType = ask("Which type of project do you want to generate? ", null, 'type')?.toLowerCase()
+}
+
+def fileExtension = projectType == 'generic' ? 'java' : projectType
+def nonJavaProject = projectType != 'generic' && projectType != 'java'
+projectType = projectType == 'generic' ? '' : projectType + '-'
+
+props.project_group = ask("Define value for 'group' [org.example]: ", 'org.example', 'group')
+props.project_name = ask("Define value for 'artifactId' [" + props.project_name + "]: ", props.project_name, 'artifactId')
+props.project_version = ask("Define value for 'version' [0.0.0-SNAPSHOT]: ", '0.0.0-SNAPSHOT', 'version')
+props.kordamp_version = ask("Define value for 'kordampVersion' [0.30.4]: ", '0.30.4', 'kordampVersion')
+props.project_layout = ask("Define value for 'layout' [two-level] from (single, standard, two-level, multi-level): ", 'two-level', 'layout')
+props.project_author = ask("Define valud for 'author' [" + props.project_author + "]: ", props.project_author, 'author')
+props.project_license = ask("Define value for 'license' [Apache-2.0]: ", 'Apache-2.0', 'license')
 
 processTemplates 'gradle.properties', props
 
@@ -35,7 +48,7 @@ def createSubproject = { File dir ->
     String buildFileName = dir.name + '.gradle'
     new File(dir, buildFileName).text = """
     |plugins {
-    |    id 'java'
+    |    id 'java-library'${nonJavaProject?"\n    id '${fileExtension}'":""}
     |}
     |
     |config {
@@ -45,8 +58,8 @@ def createSubproject = { File dir ->
     |    }
     |}
     |""".stripMargin()
-    new File(dir, 'src/main/java').mkdirs()
-    new File(dir, 'src/test/java').mkdirs()
+    new File(dir, 'src/main/' + fileExtension).mkdirs()
+    new File(dir, 'src/test/' + fileExtension).mkdirs()
 }
 
 def currentYear = { ->
@@ -59,8 +72,8 @@ def currentYear = { ->
 def createBuildfileSingle = { ->
     new File(projectDir, 'build.gradle').text = """
     |plugins {
-    |    id 'java'
-    |    id 'org.kordamp.gradle.project' version '${props.kordamp_version}'
+    |    id 'java-library'${nonJavaProject?"\n    id '${fileExtension}'":""}
+    |    id 'org.kordamp.gradle.${projectType}project' version '${props.kordamp_version}'
     |}
     |
     |config {
@@ -116,7 +129,7 @@ def createBuildfileSingle = { ->
 def createBuildfileMulti = { ->
     new File(projectDir, 'build.gradle').text = """
     |plugins {
-    |    id 'org.kordamp.gradle.project' version '${props.kordamp_version}'
+    |    id 'org.kordamp.gradle.${projectType}project' version '${props.kordamp_version}'
     |}
     |
     |config {
@@ -220,8 +233,8 @@ def createSettingsMulti = { dirs ->
 switch(props.project_layout.toLowerCase()) {
     case 'i':
     case 'single':
-        new File(projectDir, 'src/main/java').mkdirs()
-        new File(projectDir, 'src/test/java').mkdirs()
+        new File(projectDir, 'src/main/' + fileExtension).mkdirs()
+        new File(projectDir, 'src/test/' + fileExtension).mkdirs()
         createBuildfileSingle()
         createSettingsSingle()
         break
