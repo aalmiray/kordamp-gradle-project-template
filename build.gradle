@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: Apache-2.0
  *
- * Copyright 2018-2019 Andres Almiray.
+ * Copyright 2018-2020 Andres Almiray.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,5 +36,5 @@ lazybones {
     repositoryApiKey   = project.bintrayApiKey
 
     licenses = ['Apache-2.0']
-    vcsUrl = 'https://github.com/aalmiray/kordamp-gradle-project-template'
+    vcsUrl = 'https://github.com/kordamp/kordamp-gradle-project-template'
 }
