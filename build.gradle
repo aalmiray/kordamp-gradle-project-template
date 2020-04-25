@@ -31,7 +31,7 @@ buildscript {
 apply plugin: 'uk.co.cacoethes.lazybones-templates'
 
 lazybones {
-    repositoryName     = 'aalmiray/kordamp'
+    repositoryName     = 'kordamp/maven'
     repositoryUsername = project.bintrayUsername
     repositoryApiKey   = project.bintrayApiKey
 

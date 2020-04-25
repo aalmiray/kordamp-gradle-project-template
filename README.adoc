@@ -4,7 +4,7 @@
 :project-owner:   kordamp
 :project-repo:    maven
 :project-name:    kordamp-gradle-project-template
-:project-version: 2.0.0
+:project-version: 2.2.0
 
 image:http://img.shields.io/travis/{project-owner}/{project-name}/master.svg["Build Status (travis)", link="https://travis-ci.org/{project-owner}/{project-name}"]
 image:http://img.shields.io/badge/license-ASL2-blue.svg["ASL2 Licensed", link="http://opensource.org/licenses/ASL2"]
@@ -24,7 +24,7 @@ A link:https://github.com/pledbrook/lazybones/[Lazybones] project template for l
 [subs="attributes"]
 ----
 bintrayRepositories = [
-    'aalmiray/kordamp',
+    'kordamp/maven',
     'pledbrook/lazybones-templates'
 ]
 ----
