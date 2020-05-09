@@ -26,7 +26,7 @@ projectType = projectType == 'generic' ? '' : projectType + '-'
 props.project_group = ask("Define value for 'group' [org.example]: ", 'org.example', 'group')
 props.project_name = ask("Define value for 'artifactId' [" + props.project_name + "]: ", props.project_name, 'artifactId')
 props.project_version = ask("Define value for 'version' [0.0.0-SNAPSHOT]: ", '0.0.0-SNAPSHOT', 'version')
-props.kordamp_version = ask("Define value for 'kordampVersion' [0.34.0]: ", '0.34.0', 'kordampVersion')
+props.kordamp_version = ask("Define value for 'kordampVersion' [0.36.0]: ", '0.36.0', 'kordampVersion')
 props.project_layout = ask("Define value for 'layout' [two-level] from (single, standard, two-level, multi-level): ", 'two-level', 'layout')
 props.project_author = ask("Define valud for 'author' [" + props.project_author + "]: ", props.project_author, 'author')
 props.project_license = ask("Define value for 'license' [Apache-2.0]: ", 'Apache-2.0', 'license')
